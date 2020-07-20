@@ -1,6 +1,7 @@
 package seleniumTest;
 
 import java.util.Properties;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -28,8 +29,13 @@ public class Selenium_test {
 			WebDriverManager.chromedriver().setup();
 			driver=new ChromeDriver(options);
 			
-			driver.navigate().to("https://www.google.com");
 			}
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		wait = new WebDriverWait(driver,20);
+		driver.navigate().to("https://www.google.com");
+		
+		
 
 }
 	
